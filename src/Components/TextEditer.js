@@ -62,7 +62,7 @@ function TextEditer() {
 				<EmailShareButton
 					subject="e-card"
 					body={"This is my Holiday card for you."}
-					url="http://Hiwot-Beshe.github.io/decidr/"
+					url="http://Hiwot-Beshe.github.io/ecard/"
 				>
 					<EmailIcon size={40} round />
 				</EmailShareButton>
