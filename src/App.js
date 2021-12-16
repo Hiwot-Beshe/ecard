@@ -15,8 +15,7 @@ function App() {
 	const [importedClosing, setImportedClosing] = useState(
 		query.get("closing") || "Love, your son Juan"
 	);
-	const [customize, setCustomize] = useState(false);
-	const [preview, setPreview] = useState(false);
+	
 	return (
 		<div className="App">
 			<div>
@@ -30,8 +29,7 @@ function App() {
 						setBody={setImportedBody}
 						closing={importedClosing}
 						setClosing={setImportedClosing}
-						setPreview={setPreview}
-						setCustomize={setCustomize}
+						
 					/>
 				</did>
 			</div>

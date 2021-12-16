@@ -17,31 +17,14 @@ function TextEditer(
 	setPreview,
 	setCustomize
 ) {
-	const sendEcard = () => {
-		let mailto = `mailto:${email}`;
-		mailto += "?subject=E-Card";
-		mailto += "&body=You have received an e-greeting card.";
-		mailto += "%0D%0A%0D%0A";
-		mailto += "Go To Greeting Card";
-		mailto += "%0D%0A";
-
-		let url = "http://Hiwot-Beshe.github.io/ecard/";
-		url += `?greeting=${encodeURIComponent(greeting)}`;
-		url += `&body=${encodeURIComponent(body)}`;
-		url += `&closing=${encodeURIComponent(closing)}`;
-
-		mailto += encodeURIComponent(url);
-
-		window.open(mailto);
-	};
-	const onSubmit = (event) => {
-		event.preventDefault();
-		setPreview(true);
-		setCustomize(false);
-	};
+	
+	 const handleSave = ({  value, previousValue }) => {
+			console.log( " saved as: " + value + previousValue + ")");
+		};
+	
 	return (
 		<div className="App-header">
-			<Card className="App-card">
+			<Card className="App-card" type="submit">
 				<Card.Body>
 					<br />
 					<Card.Title
@@ -59,6 +42,7 @@ function TextEditer(
 						<img src={logo} className="App-logo" alt="logo" />
 					</Card.Subtitle>
 					<Card.Text>To customize your message, click the text</Card.Text>
+
 					<Card.Text>
 						<EditText
 							style={{
@@ -70,19 +54,7 @@ function TextEditer(
 							value={greeting}
 							onChange={(event) => setGreeting(event.target.value)}
 							placeholder="Greeting"
-						/>
-					</Card.Text>
-					<Card.Text>
-						<EditText
-							style={{
-								padding: "10px",
-								fontSize: "24px",
-								color: "#FFF",
-								backgroundColor: "#000",
-							}}
-							value={greeting}
-							onChange={(event) => setGreeting(event.target.value)}
-							placeholder="Greeting"
+							onSave={handleSave}
 						/>
 					</Card.Text>
 					<Card.Text>
@@ -91,6 +63,7 @@ function TextEditer(
 							value={body}
 							onChange={(event) => setBody(event.target.value)}
 							placeholder="It’s the most wonderful time of the year…and you’re the most wonderful mom."
+							onSave={handleSave}
 						/>
 					</Card.Text>
 					<Card.Text>
@@ -105,6 +78,7 @@ function TextEditer(
 							value={closing}
 							onChange={(event) => setClosing(event.target.value)}
 							placeholder="Closing"
+							onSave={handleSave}
 						/>
 					</Card.Text>
 				</Card.Body>
@@ -112,7 +86,7 @@ function TextEditer(
 
 			<div>
 				<EmailShareButton
-					onClick={sendEcard}
+					
 					subject="e-card"
 					body={"This is my Holiday card for you."}
 					url="http://Hiwot-Beshe.github.io/ecard/"
