@@ -17,11 +17,10 @@ function TextEditer(
 	setPreview,
 	setCustomize
 ) {
-	
-	 const handleSave = ({  value, previousValue }) => {
-			console.log( " saved as: " + value + previousValue + ")");
-		};
-	
+	const handleSave = ({ value, previousValue }) => {
+		alert(" saved as: " + value + previousValue + ")");
+	};
+
 	return (
 		<div className="App-header">
 			<Card className="App-card" type="submit">
@@ -86,7 +85,6 @@ function TextEditer(
 
 			<div>
 				<EmailShareButton
-					
 					subject="e-card"
 					body={"This is my Holiday card for you."}
 					url="http://Hiwot-Beshe.github.io/ecard/"
