@@ -50,6 +50,19 @@ function TextEditer(
 								color: "#FFF",
 								backgroundColor: "#000",
 							}}
+							value={email}
+							onChange={(event) => setEmail(event.target.value)}
+							placeholder="Recipient Email"
+						/>
+					</Card.Text>
+					<Card.Text>
+						<EditText
+							style={{
+								padding: "10px",
+								fontSize: "24px",
+								color: "#FFF",
+								backgroundColor: "#000",
+							}}
 							value={greeting}
 							onChange={(event) => setGreeting(event.target.value)}
 							placeholder="Greeting"
